@@ -3,6 +3,8 @@
   height: 11rem;
   width: 100%;
   background-color: rgb(203, 203, 203);
+  color: rgb(83, 80, 80);
+  font-family: cursive;
 }
 .card-container {
   height: 3rem;
@@ -50,4 +52,40 @@
   display: flex;
   flex-direction: column;
   position: relative;
+}
+
+/* search component  */
+.search {
+  width: 20rem;
+  border: 1px solid #b4b1b1;
+  border-radius: 2em;
+  overflow: hidden;
+  font-size: 1rem;
+  display: inline-flex;
+  margin-top: 1rem;
+}
+
+.search:focus-within {
+  box-shadow: 2px 2px 5px #727272;
+}
+
+.search-button,
+.search-input {
+  background-color: #f9f7f7;
+  border: none;
+  outline: none;
+}
+
+.search-input {
+  padding: 1em;
+  width: 85%;
+}
+
+.search-button {
+  width: 15%;
+  font-size: 1.5rem;
+  padding-right: 0.5em;
+  color: gray;
+  display: grid;
+  place-content: center;
 }
