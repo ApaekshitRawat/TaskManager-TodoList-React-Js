@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import CreateTasks from "./modals/CreateTasks";
 import Card from "./Card";
+import SearchBar from "./SearchBar";
 
 const TaskManager = () => {
   const [modal, setModal] = useState(false);
   const [taskList, setTaskList] = useState([]);
-
+  const [searchItem, setSearchItem] = useState([]);
   // useEffect to get the data from local storage if any and update our state.
 
   useEffect(() => {
@@ -13,6 +14,7 @@ const TaskManager = () => {
     if (arr) {
       let obj = JSON.parse(arr);
       setTaskList(obj);
+      setSearchItem(obj);
     }
   }, []);
 
@@ -54,9 +56,10 @@ const TaskManager = () => {
         <button className="btn btn-primary mt-3" onClick={() => setModal(true)}>
           Create Task
         </button>
+        <SearchBar taskList={taskList} setSearchItem={setSearchItem} />
       </div>
       <div className="task-container">
-        {taskList.map((list, index) => {
+        {searchItem.map((list, index) => {
           return (
             <Card
               key={index}
